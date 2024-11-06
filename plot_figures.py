@@ -32,7 +32,7 @@ dir_2d = Path('/home1/08524/jqfang/scratch/model_2411/2d')
 with h5py.File(dir_2d / 'basic/mesh_0.h5', 'r') as f:
     mesh_2d = f['vertices'][...]
 
-dir_3d = Path('/home1/08524/jqfang/scratch/model_2411/2.5d_ic')
+dir_3d = Path('/home1/08524/jqfang/scratch/model_2411/2.5d')
 with h5py.File(dir_3d / 'basic/mesh_0.h5', 'r') as f:
     mesh_3d = f['vertices'][...]
 

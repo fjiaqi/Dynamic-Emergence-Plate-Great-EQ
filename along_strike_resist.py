@@ -500,6 +500,12 @@ def diagnose(**kwargs):
     MPI.COMM_WORLD.Bcast(diagnostics, root=0)
     return diagnostics
 
+# Save basics
+mesh.save(str(basic_dir / f'mesh_0.h5'))
+temperatureField.save(str(basic_dir / f'temperature_0.h5'))
+swarm.save(str(basic_dir / f'swarm_0.h5'))
+materialIndex.save(str(basic_dir / f'material_0.h5'))
+
 # Solve for long-term (creating prestress IC for short-term)
 if(restart_step < -1):
     flag = 'l'
@@ -734,9 +740,6 @@ while(step < nsteps_short):
                 break
             else:
                 ii += 1
-
-        appliedTraction.save(str(data_dir / f'applied_traction_{flag}{step:d}.h5'))
-        expectedTraction.save(str(data_dir / f'expected_traction_{flag}{step:d}.h5'))
     
     dt = dt_e*phi_dt
 
